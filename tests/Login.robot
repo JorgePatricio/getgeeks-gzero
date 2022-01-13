@@ -18,7 +18,7 @@ Usuário Login
     Usuario deve estar logado       ${user}
 
 Senha Incorreta
-    [Tags]      s_incorreta
+    [Tags]      senha_incorreta
 
     ${user}     Create Dictionary       email=khennos@gmail.com     password=abc123
 
@@ -38,7 +38,7 @@ Usuario não encontrado
     Modal deve ser   Usuário e/ou senha inválidos.
 
 Email Incorreto
-    [Tags]      i_email
+    [Tags]      email_incorreto
 
     ${user}     Create Dictionary       email=khennos.com.br          password=abc123
 
