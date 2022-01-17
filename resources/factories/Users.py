@@ -32,3 +32,18 @@ def factory_usuario_login():
         'email': 'khennos@gmail.com',
         'password': 'pwd123'
     }
+
+def factory_usuario_seja_um_geek():
+    return{
+        'nome': 'Nicolas',
+        'sobrenome': 'Patricio',
+        'email': 'nicolas@gmail.com',
+        'password': 'pwd123',
+        'perfil_geek':{
+            'zap': '71988887777',
+            'desc': 'Opa digai! Vamos escrever para completar os 80 caracteres necessários para não bugar o teste. Acho que agora vai.',
+            'reparo_imp':'Não',
+            'trabalho': 'Remoto',
+            'custo_hora': '150'
+        }
+    }

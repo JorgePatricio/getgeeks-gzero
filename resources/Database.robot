@@ -31,3 +31,6 @@ Users Seed
 
     ${user}     Factory Usuario Login
     Inserir Usuario  ${user}
+
+    ${user2}    Factory Usuario Seja um Geek
+    Inserir Usuario  ${user2}

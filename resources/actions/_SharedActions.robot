@@ -14,3 +14,19 @@ Modal deve ser
 
     Wait For Elements State     ${content}      visible     5
     Get Text                    ${content}      equal       ${mensagem_esperada}
+
+Alertas do campo devem ser
+    [Arguments]     ${alertas_esperados}
+
+    @{alertas_obtidos}      Create List     
+
+    ${spans}        Get Elements        xpath=//span[@class="error"]
+
+    FOR     ${span}     IN      @{spans}
+
+        ${text}             GET Text                ${span}
+        Append To List      ${alertas_obtidos}    ${text}
+
+    END
+
+    Lists Should Be Equal        ${alertas_esperados}        ${alertas_obtidos}

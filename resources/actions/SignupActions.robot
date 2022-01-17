@@ -31,19 +31,3 @@ Notificação do campo deve ser
     [Arguments]         ${expected_notice}
 
     Wait For Elements State     css=span[class=error] >> text=${expected_notice}        visible     5
-
-Alertas do campo devem ser
-    [Arguments]     ${alertas_esperados}
-
-    @{alertas_obtidos}      Create List     
-
-    ${spans}        Get Elements        xpath=//span[@class="error"]
-
-    FOR     ${span}     IN      @{spans}
-
-        ${text}             GET Text                ${span}
-        Append To List      ${alertas_obtidos}    ${text}
-
-    END
-
-    Lists Should Be Equal        ${alertas_esperados}        ${alertas_obtidos}
