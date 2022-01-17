@@ -9,7 +9,7 @@ Test Teardown   Finalizar Sessao
 *Test Cases*
 Registrar novo usuário
 
-    ${user}         Factory User
+    ${user}         Factory Usuario        falso
 
     Vai para formulario de cadastro
     Preencher formulario de cadastro  ${user}
@@ -19,7 +19,7 @@ Registrar novo usuário
 Usuario Duplicado
     [Tags]      tentativa_cenario
 
-    ${user}                             Factory User
+    ${user}                             Factory Usuario        falso
 
     Adicionar Usuario pela Database     ${user}
 
@@ -31,7 +31,7 @@ Usuario Duplicado
 Email Incorreto
     [Tags]      tentativa_cenario
 
-    ${user}     Factory Email Incorreto
+    ${user}     Factory Usuario     email_errado
 
     Vai para formulario de cadastro
     Preencher formulario de cadastro  ${user}

@@ -10,7 +10,7 @@ Test Teardown   Finalizar Sessao
 
 Usuário Login
 
-    ${user}                             Factory Usuario Login
+    ${user}                             Factory Usuario     login
 
     Ir para pagina login
     Preencher Credenciais    ${user}

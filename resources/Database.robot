@@ -29,8 +29,8 @@ Inserir Usuario
 
 Users Seed
 
-    ${user}     Factory Usuario Login
+    ${user}     Factory Usuario     login
     Inserir Usuario  ${user}
 
-    ${user2}    Factory Usuario Seja um Geek
+    ${user2}    Factory Usuario     geek
     Inserir Usuario  ${user2}

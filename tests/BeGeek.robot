@@ -10,7 +10,7 @@ Test Teardown   Finalizar Sessao
 
 Seja um Geek
 
-    ${user}     Factory Usuario Seja um Geek
+    ${user}     Factory Usuario     geek
      
     Fazer Login  ${user}
     Vai para formulário Geek
