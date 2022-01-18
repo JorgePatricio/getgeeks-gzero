@@ -37,7 +37,7 @@ Tentar ser um Geek
     Submeter formulario geek
     Notificação do campo deve ser  ${mensagem_saida}
 
-    Take Screenshot     fullPage=True
+    Após Sessao
 
 Iniciar Sessao para tentativa de ser Geek
 

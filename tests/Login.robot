@@ -4,7 +4,7 @@ Documentation       Login test suite
 Resource        ${EXECDIR}/resources/Base.robot
 
 Test Setup      Iniciar Sessao
-Test Teardown   Finalizar Sessao
+Test Teardown   Após Sessao
 
 *Test Cases*
 
