@@ -18,8 +18,9 @@ ${BASE_URL}     https://getgeeks-jorge.herokuapp.com
 
 *Keywords*
 Iniciar Sessao
-    New Browser     chromium    headless=False  slowMo=00:00:00.5
-    New Page         ${BASE_URL}
+    New Browser             chromium    headless=False  slowMo=00:00:00.5
+    New Page                ${BASE_URL}
+    Set Viewport Size       1280    768
 
 Finalizar Sessao
     Take Screenshot     fullPage=True

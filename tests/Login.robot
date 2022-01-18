@@ -9,7 +9,7 @@ Test Teardown   Finalizar Sessao
 *Test Cases*
 
 Usuário Login
-
+    [Tags]      smoke
     ${user}                             Factory Usuario     login
 
     Ir para pagina login

@@ -3,25 +3,26 @@ Documentation       Tentativa de ser um Geek test suite
 
 Resource        ${EXECDIR}/resources/Base.robot
 
-Test Setup      Iniciar Sessao para tentativa de ser Geek
+Suite Setup      Iniciar Sessao para tentativa de ser Geek
+Test Template    Tentar Ser um Geek
 
 *Variables*
 ${desc_longa}       escrever um bocado de coisa para tentar chegar aos 255 caracteres. Tem que ter um pouco de paciencia para isso, ou até mesmo... aff esqueci a palavra, na hora que a gente mais precisa e acabamos esquecendo as coisas. Pqp é vc que ta fudendo o meu teste de tamanho.
 
 *Test Cases*
-Não deve ser um geek
-    [Template]      Tentar ser um Geek
 
-    desc            Formato o seu PC        A descrição deve ter no minimo 80 caracteres
-    desc            ${desc_longa}           A descrição deve ter no máximo 255 caracteres
-    desc            ${EMPTY}                Informe a descrição do seu trabalho
-    zap             11                      O Whatsapp deve ter 11 digitos contando com o DDD
-    zap             999999999               O Whatsapp deve ter 11 digitos contando com o DDD
-    zap             ${EMPTY}                O Whatsapp deve ter 11 digitos contando com o DDD
-    custo_hora      aaaa                    Valor hora deve ser numérico
-    custo_hora      aa12                    Valor hora deve ser numérico
-    custo_hora      $%#@                    Valor hora deve ser numérico
-    custo_hora      ${EMPTY}                Valor hora deve ser numérico
+Descrição Curta                 desc            Formato o seu PC        A descrição deve ter no minimo 80 caracteres
+Descrição Longa                 desc            ${desc_longa}           A descrição deve ter no máximo 255 caracteres
+Descrição Vazia                 desc            ${EMPTY}                Informe a descrição do seu trabalho
+Whatsapp só ddd                 zap             11                      O Whatsapp deve ter 11 digitos contando com o DDD
+Whatsapp só número              zap             999999999               O Whatsapp deve ter 11 digitos contando com o DDD
+Whatsapp Vazio                  zap             ${EMPTY}                O Whatsapp deve ter 11 digitos contando com o DDD
+Custo Letras                    custo_hora      aaaa                    Valor hora deve ser numérico
+Custo Alpha                     custo_hora      aa12                    Valor hora deve ser numérico
+Custo Caracteres Especiais      custo_hora      $%#@                    Valor hora deve ser numérico
+Custo Vazio                     custo_hora      ${EMPTY}                Valor hora deve ser numérico
+Não Reparar Impressora          reparo_imp      ${EMPTY}                Por favor, informe se você é um Geek Supremo
+Sem trabalho                    trabalho        ${EMPTY}                Por favor, selecione o modelo de trabalho
 
 *Keywords*
 

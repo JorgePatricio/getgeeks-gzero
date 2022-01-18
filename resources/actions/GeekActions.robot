@@ -9,12 +9,19 @@ Vai para formulário Geek
 Preencher formulário Geek
     [Arguments]         ${perfil_geek}
 
+    Resetar formulario Geek
+    
     Fill Text       id=whatsapp     ${perfil_geek}[zap]
     Fill Text       id=desc         ${perfil_geek}[desc]
 
-    Select Options By       id=printer_repair       text       ${perfil_geek}[reparo_imp]
-    Select Options By       id=work                 text       ${perfil_geek}[trabalho]
+    IF      '${perfil_geek}[reparo_imp]'
+        Select Options By       id=printer_repair       text       ${perfil_geek}[reparo_imp]
+    END
 
+    IF      '${perfil_geek}[trabalho]'
+        Select Options By       id=work                 text       ${perfil_geek}[trabalho]
+    END
+    
     Fill Text       id=cost         ${perfil_geek}[custo_hora]
 
 Submeter formulario geek
@@ -25,3 +32,7 @@ Validar Formulario Geek
     ${mensagem_esperada}        Set Variable        Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp.
 
     Wait For Elements State     css=p >> text=${mensagem_esperada}      visible     5
+
+Resetar formulario Geek
+
+    Execute Javascript      document.getElementsByClassName("be-geek-form")[0].reset();

@@ -8,6 +8,7 @@ Test Teardown   Finalizar Sessao
 
 *Test Cases*
 Registrar novo usuário
+    [Tags]      smoke
 
     ${user}         Factory Usuario        falso
 

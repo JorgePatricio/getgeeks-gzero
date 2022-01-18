@@ -9,7 +9,8 @@ Test Teardown   Finalizar Sessao
 *Test Cases*
 
 Seja um Geek
-
+    [Tags]      smoke
+    
     ${user}     Factory Usuario     geek
      
     Fazer Login  ${user}
