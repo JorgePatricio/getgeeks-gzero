@@ -22,4 +22,4 @@ Iniciar Sessao
     New Page         ${BASE_URL}
 
 Finalizar Sessao
-    Take Screenshot
+    Take Screenshot     fullPage=True

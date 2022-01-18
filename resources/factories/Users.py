@@ -39,7 +39,20 @@ def factory_usuario(alvo):
                 'trabalho': 'Remoto',
                 'custo_hora': '150'
             }
-        }
+        },
+        'tentativa_ser_geek': {
+            'nome': 'Dio',
+            'sobrenome': 'Linux',
+            'email': 'dio@gmail.com',
+            'password': 'pwd123',
+            'perfil_geek':{
+                'zap': '71966668888',
+                'desc': 'escrever um bocado de coisa para tentar chegar aos 255 caracteres. Tem que ter um pouco de paciencia para isso, ou até mesmo... aff esqueci a palavra, na hora que a gente mais precisa e acabamos esquecendo as coisas.',
+                'reparo_imp':'Sim',
+                'trabalho': 'Remoto',
+                'custo_hora': '200'
+            }
+        }  
     }
 
     return data[alvo]

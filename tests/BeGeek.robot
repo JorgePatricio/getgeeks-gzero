@@ -16,9 +16,4 @@ Seja um Geek
     Vai para formulário Geek
     Preencher formulário Geek  ${user}[perfil_geek]
     Submeter formulario geek
-
-    
     Validar Formulario Geek
-
-
-
