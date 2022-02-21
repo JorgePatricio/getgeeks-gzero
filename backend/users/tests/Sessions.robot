@@ -1,10 +1,16 @@
 *Settings*
 Documentation			Sessions route test suite
 
-Library		RequestsLibrary
+Resource		${EXECDIR}/resources/Base.robot
 
 *Variables*
-${API_USERS}		https://getgeeks-users-jorge.herokuapp.com
+&{senha_invalida}		email=khennos@gmail.com		password=abc123
+&{email_invalido}		email=khennos.com.br		password=abc123
+&{email_404}			email=khennos@404.com		password=abc123
+&{email_vazio}			email=${EMPTY}				password=abc123
+&{Sem_campo_email}		password=abc123
+&{Senha_vazia}			email=khennos@gmail.com		password=${EMPTY}
+&{Sem_campo_senha}		email=khennos@gmail.com
 
 *Test Cases*
 
@@ -12,7 +18,7 @@ Login do usuario
 
 	${payload}		Create Dictionary		email=khennos@gmail.com		password=pwd123
 
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
+	${response}		POST Session  ${payload}
 
 	Status Should Be		200						${response}
 
@@ -22,65 +28,22 @@ Login do usuario
 	Should Be Equal			${expected_size}		${size}
 	Should Be Equal			10d						${response.json()}[expires_in]
 
-Senha Incorreta
+Não deve gerar um token
+	[Template]		Attempt POST Session
 
-	${payload}		Create Dictionary		email=khennos@gmail.com		password=abc123
+	${senha_invalida}		401		Unauthorized
+	${email_invalido}		400		Incorrect email
+	${email_404}			401		Unauthorized
+	${email_vazio}			400		Required email
+	${Sem_campo_email}		400		Required email
+	${Senha_vazia}			400		Required pass
+	${Sem_campo_senha}		400		Required pass	
 
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
+*Keywords*
 
-	Status Should Be		401						${response}
-	Should Be Equal			Unauthorized			${response.json()}[error]
+Attempt POST Session
+	[Arguments]		${payload}		${status_code}		${error_message}
 
-Usuario não encontrado
-
-	${payload}		Create Dictionary		email=khennos@401.com		password=abc123
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		401						${response}
-	Should Be Equal			Unauthorized			${response.json()}[error]
-
-Email incorreto
-
-	${payload}		Create Dictionary		email=khennos.com		password=abc123
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		400						${response}
-	Should Be Equal			Incorrect email			${response.json()}[error]
-
-Email em branco
-
-	${payload}		Create Dictionary		email=${EMPTY}		password=abc123
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		400						${response}
-	Should Be Equal			Required email			${response.json()}[error]
-
-Sem email
-
-	${payload}		Create Dictionary		password=abc123
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		400						${response}
-	Should Be Equal			Required email			${response.json()}[error]
-
-Senha em branco
-
-	${payload}		Create Dictionary		email=khennos@gmail.com		password=${EMPTY}
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		400						${response}
-	Should Be Equal			Required pass			${response.json()}[error]
-
-Sem senha
-
-	${payload}		Create Dictionary		email=khennos@gmail.com
-
-	${response}		POST		${API_USERS}/sessions		json=${payload}		expected_status=any
-
-	Status Should Be		400						${response}
-	Should Be Equal			Required pass			${response.json()}[error]
+	${response}		POST Session		${payload}
+	Status Should Be		${status_code}		${response}
+	Should Be Equal			${error_message}	${response.json()}[error]
