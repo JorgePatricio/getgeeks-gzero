@@ -4,28 +4,37 @@ Documentation			Sessions route test suite
 Resource		${EXECDIR}/resources/Base.robot
 
 *Variables*
-&{senha_invalida}		email=khennos@gmail.com		password=abc123
-&{email_invalido}		email=khennos.com.br		password=abc123
-&{email_404}			email=khennos@404.com		password=abc123
+&{senha_invalida}		email=ildes@gmail.com		password=abc123
+&{email_invalido}		email=ildes.com.br			password=abc123
+&{email_404}			email=ildes@404.com			password=abc123
 &{email_vazio}			email=${EMPTY}				password=abc123
 &{Sem_campo_email}		password=abc123
-&{Senha_vazia}			email=khennos@gmail.com		password=${EMPTY}
-&{Sem_campo_senha}		email=khennos@gmail.com
+&{Senha_vazia}			email=ildes@gmail.com		password=${EMPTY}
+&{Sem_campo_senha}		email=ildes@gmail.com
 
 *Test Cases*
 
 Login do usuario
 
-	${payload}		Create Dictionary		email=khennos@gmail.com		password=pwd123
+	#Dado que temos um usuario cadastrado
+	${payload}		Factory User Session	signup
+	POST User  ${payload}
 
+	${payload}		Factory User Session	login
+
+	#Quando faço uma requisição POST na rota /sessions
 	${response}		POST Session  ${payload}
 
+	#Então o status code deve ser 200
 	Status Should Be		200						${response}
 
+	#E deve gerar um token JWT
 	${size}					Get Length				${response.json()}[token]
 	${expected_size}		Convert To Integer		140
 
 	Should Be Equal			${expected_size}		${size}
+	
+	#E esse token deve expirar em 10 dias
 	Should Be Equal			10d						${response.json()}[expires_in]
 
 Não deve gerar um token
