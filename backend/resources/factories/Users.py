@@ -59,3 +59,66 @@ def factory_user_session(target):
 		}
 	}
 	return data[target]
+
+
+def factory_seja_um_geek():
+
+	return {
+		'name': 'Teste automatizado',
+		'email': 'teste@gmail.com',
+		'password': 'pwd123',
+		'geek_profile': {
+			'whatsapp': '71999999999',
+  			'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+  			'printer_repair': 'Sim',
+  			'work': 'Presencial',
+  			'cost': '150.99'
+		}
+	}
+
+def factory_procurar_por_geeks():
+	return {
+		'user': {
+			'name': 'Peter Quill',
+			'email': 'quill@marvel.com',
+			'password': 'pwd123',
+		},
+		'geeks': [
+			{
+				'name': 'Riri Willians',
+				'email': 'riri@gmail.com',
+				'password': 'pwd123',
+				'geek_profile': {
+					'whatsapp': '71999999999',
+					'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+					'printer_repair': 'Não',
+					'work': 'Presencial',
+					'cost': '100'
+				}
+			},
+			{
+				'name': 'Armin Zola',
+				'email': 'zola@gmail.com',
+				'password': 'pwd123',
+				'geek_profile': {
+					'whatsapp': '21999999999',
+					'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+					'printer_repair': 'Não',
+					'work': 'Ambos',
+					'cost': '190'
+				}
+			},
+			{
+				'name': 'Reed Richards',
+				'email': 'reed@fantastic4.com',
+				'password': 'pwd123',
+				'geek_profile': {
+					'whatsapp': '55999999999',
+					'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+					'printer_repair': 'Sim',
+					'work': 'Ambos',
+					'cost': '245.88'
+				}
+			}
+		]
+	}
