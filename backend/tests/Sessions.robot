@@ -31,8 +31,6 @@ Login do usuario
 	#E deve gerar um token JWT
 	${size}					Get Length				${response.json()}[token]
 	Should Be True			${size} > 0
-
-	Should Be Equal			${expected_size}		${size}
 	
 	#E esse token deve expirar em 10 dias
 	Should Be Equal			10d						${response.json()}[expires_in]
