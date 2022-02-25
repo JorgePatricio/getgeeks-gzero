@@ -30,7 +30,7 @@ Login do usuario
 
 	#E deve gerar um token JWT
 	${size}					Get Length				${response.json()}[token]
-	${expected_size}		Convert To Integer		140
+	Should Be True			${size} > 0
 
 	Should Be Equal			${expected_size}		${size}
 	
