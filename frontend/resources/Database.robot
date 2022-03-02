@@ -29,11 +29,10 @@ Inserir Usuario
 
 Users Seed
 
-    ${user}     Factory Usuario     login
-    Inserir Usuario  ${user}
+    ${users}    Usuarios Para Inserir No Banco
 
-    ${user2}    Factory Usuario     geek
-    Inserir Usuario  ${user2}
+    FOR     ${user}     IN      @{users}
 
-    ${user3}    Factory Usuario     tentativa_ser_geek
-    Inserir Usuario  ${user3}
+        Inserir Usuario  ${user}
+
+    END

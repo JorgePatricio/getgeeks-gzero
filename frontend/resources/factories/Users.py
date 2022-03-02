@@ -7,6 +7,13 @@ def get_hashed_pass(password):
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(8))
     return hashed
 
+def usuarios_para_inserir_no_banco():
+    return [
+        factory_usuario('login'),
+        factory_usuario('geek'),
+        factory_usuario('tentativa_ser_geek')
+    ]
+
 def factory_usuario(alvo):
     data = {
         'falso': {
