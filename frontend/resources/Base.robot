@@ -3,6 +3,8 @@ Documentation       Base Test
 
 Library     Browser
 Library     Collections
+Library     String
+
 Library     factories/Users.py
 Library     Utils.py
 
@@ -13,6 +15,7 @@ Resource    actions/GeekActions.robot
 
 Resource    Database.robot
 Resource    Helpers.robot
+Resource    Services.robot
 
 *Variables*
 ${BASE_URL}     https://getgeeks-jorge.herokuapp.com

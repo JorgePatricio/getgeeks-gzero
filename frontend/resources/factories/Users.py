@@ -11,7 +11,10 @@ def usuarios_para_inserir_no_banco():
     return [
         factory_usuario('login'),
         factory_usuario('geek'),
-        factory_usuario('tentativa_ser_geek')
+        factory_usuario('tentativa_ser_geek'),
+        factory_usuario('procurar_alien'),
+        factory_usuario('procurar_comum'),
+        factory_usuario('searcher')
     ]
 
 def factory_usuario(alvo):
@@ -58,6 +61,38 @@ def factory_usuario(alvo):
                 'reparo_imp':'Sim',
                 'trabalho': 'Remoto',
                 'custo_hora': '200'
+            }
+        },
+        'searcher': {
+            'nome': 'Johnny',
+            'sobrenome': 'Lawrence',
+            'email': 'jonny@cobrakai.com',
+            'password': 'pwd123'
+        },
+        'procurar_alien': {
+            'nome': 'Dok',
+            'sobrenome': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123',
+            'perfil_geek':{
+                'whatsapp': '71999999123',
+                'desc': 'Faço conserto de qualquer impressora. Matricial a fita, matricial a fita colorida, a laser, a jato de tinta e também impressora 3D.',
+                'printer_repair': 'Sim',
+                'work': 'Presencial',
+                'cost': '250'
+            }
+        },
+        'procurar_comum': {
+            'nome': 'Peter',
+            'sobrenome': 'Parker',
+            'email': 'parker@oscorp.com',
+            'password': 'pwd123',
+            'perfil_geek':{
+                'whatsapp': '71999991002',
+                'desc': 'Faço instalação de distribuidores Linux no seu computador PC, X86 ou X64 com processadores Intel ou AMD.',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '200'
             }
         }  
     }
